@@ -1,4 +1,4 @@
-FROM node:10-buster-slim AS edumeet-builder
+FROM node:12-buster-slim AS edumeet-builder
 
 
 # Args
