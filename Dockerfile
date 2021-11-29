@@ -1,4 +1,4 @@
-FROM node:10-slim AS edumeet-builder
+FROM node:10-buster-slim AS edumeet-builder
 
 
 # Args
@@ -36,7 +36,7 @@ RUN npm run build
 #install server dep
 WORKDIR ${BASEDIR}/${EDUMEET}/server
 
-RUN apt-get install -y git build-essential python
+RUN apt-get install -y git build-essential python3 python3-pip
 
 RUN npm install
 RUN npm install logstash-client
