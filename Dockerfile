@@ -41,7 +41,7 @@ RUN apt-get install -y git build-essential python3 python3-pip
 RUN npm install
 RUN npm install logstash-client
 
-FROM node:10-slim
+FROM node:13-buster-slim
 
 # Args
 ARG BASEDIR=/opt
@@ -57,11 +57,11 @@ COPY --from=edumeet-builder ${BASEDIR}/${EDUMEET}/server ${BASEDIR}/${EDUMEET}/s
 
 
 # Web PORTS
-EXPOSE 80 443 
+EXPOSE 80 443
 EXPOSE 40000-49999/udp
 
 
-## run server 
+## run server
 ENV DEBUG ${SERVER_DEBUG}
 
 COPY docker-entrypoint.sh /
